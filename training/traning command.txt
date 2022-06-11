@@ -1,0 +1,40 @@
+# mtranse
+python run.py --log mtranse \
+--data_dir "data/CLOUD-KUWO" \
+--rate 0.3 \
+--epoch 1000 \
+--check 10 \
+--update 10 \
+--train_batch_size 5000 \
+--encoder "" \
+--hiddens "100" \
+--decoder "TransE,MTransE_Align" \
+--sampling ".,." \
+--k "0,0" \
+--margin "0,0" \
+--alpha "1,50" \
+--feat_drop 0.0 \
+--lr 0.01 \
+--train_dist "euclidean" \
+--test_dist "euclidean"
+
+gcnalign
+python run.py --log gcnalign \
+--data_dir "data/CLOUD-KUWO" \
+--rate 0.3 \
+--epoch 1000 \
+--check 10 \
+--update 10 \
+--train_batch_size -1 \
+--encoder "GCN-Align" \
+--hiddens "100,100,100" \
+--decoder "Align" \
+--sampling "N" \
+--k "25" \
+--margin "1" \
+--alpha "1" \
+--feat_drop 0.0 \
+--lr 0.005 \
+--train_dist "euclidean" \
+--test_dist "euclidean"
+
